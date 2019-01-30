@@ -8,7 +8,7 @@ export default App => {
   const text = useInputValue('');
 
   // custom hook fetching data
-  const { data, loading } = useFetch("https://api.randomuser.me/");
+  const { data, loading } = useFetch('https://api.randomuser.me/');
 
     return (
       <div className="App">

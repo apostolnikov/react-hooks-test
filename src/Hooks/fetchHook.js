@@ -4,12 +4,16 @@ export const useFetch = url => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(async () => {
-    const res = await fetch(url);
-    const data = res.json();
-    const [item] = data;
+  const fetchMyData = async () => {
+    const response = await fetch(url);
+    const data = await response.json();
+    const [item] = data.results;
     setData(item);
     setLoading(false);
+  };
+
+  useEffect(() => {
+    fetchMyData();
   }, []);
 
   return { data, loading };
